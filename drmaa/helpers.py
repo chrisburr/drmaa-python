@@ -238,7 +238,8 @@ def adapt_rusage(rusage):
     """
     rv = dict()
     for attr in attributes_iterator(rusage.contents):
-
+        if attr == '':
+            continue
         k, v = attr.split('=',1)
         rv[k] = v
     return rv
